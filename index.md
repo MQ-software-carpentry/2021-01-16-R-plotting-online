@@ -337,7 +337,6 @@ of code below the Schedule `<h2>` header below with
 <h2 id="schedule">Schedule</h2>
 
 {% include custom-schedule.html %}
-{% endif %}
 
 <hr/>
 
