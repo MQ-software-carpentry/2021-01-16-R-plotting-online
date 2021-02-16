@@ -1,249 +1,59 @@
 [![Build Status](https://travis-ci.com/carpentries/workshop-template.svg?branch=gh-pages)](https://travis-ci.com/carpentries/workshop-template)
 
-# The Carpentries Workshop Template
 
-This repository is The Carpentries' ([Software Carpentry][swc-site], [Data Carpentry][dc-site], and
-[Library Carpentry][lc-site]'s) template for creating websites for workshops.
 
-1. **Please _do not fork this repository directly on GitHub._** Instead, please use GitHub's
-   "template" function following [the instructions below](#creating-a-repository) to copy this
-   `workshop-template` repository and customize it for your workshop.
+R plotting with ggplot2 workshop, Macquarie University, Feb 2021
 
-2. Please *do your work in your repository's `gh-pages` branch*, since that is what is
-   [automatically published as a website by GitHub][github-project-pages].
+Workshop held online using Zoom
 
-3. Once you are done, please also [let us know][email] the workshop URL. If this is a self-organised
-   workshop, you should also [fill in the self-organized workshop
-   form][self-organized-workshop-form] (if you have not already done so), so we can keep track of
-   all workshops. We build the list of workshops on our websites from the data included in your
-   `index.md` page. We can only do that if you [customize][customization] that page correctly *and*
-   let us know the workshop URL.
+Workshop website: https://mq-software-carpentry.github.io/2021-02-16-R-plotting-online/
 
-If you run into problems,
-or have ideas about how to make this process simpler,
-please [get in touch](#getting-and-giving-help).
-The pages on [customizing your website][customization],
-the [FAQ][faq],
-and the [design notes][design] have more detail on what we do and why.
-And please note:
-if you are teaching Git,
-please [create a separate repository](#setting-up-a-separate-repository-for-learners)
-for your learners to practice in.
 
-## Video Tutorial
 
-There is a [YouTube video](https://www.youtube.com/watch?v=_Ag1JiZzyUQ) that demonstrates how to
-create a workshop website.
+Set up instructions for participants of the workshop:
 
-## Creating a Repository
+Thank you for registering for the R Plotting workshop coming up on Tuesday and Wednesday this week. This email is relatively long, but it contains important information about the workshop so please make some time to read through it carefully.
 
-1.  Log in to GitHub.
-    (If you do not have an account, you can quickly create one for free.)
-    You must be logged in for the remaining steps to work.
+The workshop starts at 9:30am each day and will be held on Zoom. You should have received a calendar invite that contained the Zoom link. 
 
-2.  On this page (<https://github.com/carpentries/workshop-template>),
-    click on the green "Use this template" button (top right)
+As the entire workshop will be held online, we'd like you to complete a few steps before Tuesday to ensure your environment is set up and ready to go before the start of the workshop.
 
-    ![the 'use this template' button on GitHub](fig/select-github-use-template.png?raw=true)
+1. Computer with a browser and Zoom installed
 
-3.  Select the owner for your new repository.
-    (This will probably be you, but may instead be an organization you belong to.)
+Ensure you have access to a device (Mac, PC) with reasonable internet bandwidth with a modern browser (eg Chrome) installed.
 
-4.  Choose a name for your workshop website repository.
-    This name should have the form `YYYY-MM-DD-site`,
-    e.g., `2016-12-01-miskatonic`,
-    where `YYYY-MM-DD` is the start date of the workshop.
-    If your workshop is held online, then the respository name should have `-online` in the end.
-    e.g., `2016-12-01-miskatonic-online`
+You will need the Zoom client to join the workshop Zoom call. We will be using some of Zoom's functionalities and these have changed in recent versions of Zoom, so please make sure your Zoom is updated to the latest version. Instructions for updating your Zoom can be found here: https://support.zoom.us/hc/en-us/articles/201362233-Upgrade-update-to-the-latest-version.
 
-5.  Make sure the repository is public, leave "Include all branches" unchecked, and click
-on "Create repository from template".
-You will be redirected to your new copy of the workshop template respository.
+The workshop is a 'live coding' format event, where the presenter 'codes' in real time and you code on your device at the same time. We will make use of Zoom, RStudio and a Google Document throughout the workshop. Having multiple screens or joining the zoom call from multiple devices (e.g. your desktop computer + your laptop/tablet), can make it much easier to keep everything visible and organised. More information about setting up your workspace can be found here: https://mq-software-carpentry.github.io/2021-02-16-R-plotting-online/.
 
-6. Your new website will be rendered at `https://your_username.github.io/YYYY-MM-DD-site`.
-For example, if your username is `gvwilson`, the website's URL will be
-`https://gvwilson.github.io/2016-12-01-miskatonic`.
 
-If you experience a problem, please [get in touch](#getting-and-giving-help).
+2. Install R, RStudio and the tidyverse
 
-## Customizing Your Website (Required Steps)
+Please make sure you have R and RStudio installed on your computer - installation instructions for Windows and macOS operating systems here: https://datacarpentry.org/socialsci-workshop/setup-r-workshop.html (scroll down to find R and RStudio). 
 
-There are two ways of customizing your website. You can either:
+Please make sure you have the tidyverse set of packages installed. To install the tidyverse:
+- open RStudio
+- in the console run this code: install.packages("tidyverse") 
+- if you get asked about installing packages from sources, type ‘no’ and press enter
+- after the prompt returns to a ‘>’ symbol run this code: library(tidyverse) 
 
-- edit the files directly in GitHub using your web browser
-- clone the repository on your computer and update the files locally
+You may see a message about conflicts, this is a normal message when loading the tidyverse (example of a normal conflict message can be found here: https://tidyverse.tidyverse.org/).
 
-### Updating the files on GitHub in your web browser
+To test that the tidyverse is installed and working properly, please run this small piece of code in the console:
 
-1.  Go into your newly-created repository,
-    which will be at `https://github.com/your_username/YYYY-MM-DD-site`.
-    For example,
-    if your username is `gvwilson`,
-    the repository's URL will be `https://github.com/gvwilson/2016-12-01-miskatonic`.
+relig_income %>%
+  pivot_longer(!religion, names_to = "income", values_to = "count") %>%
+  ggplot(mapping = aes(x = income, y = count)) +
+  geom_point()
 
-3.  Ensure you are on the gh-pages branch by clicking on the branch under the drop
-    down in the menu bar (see the note below):
+If everything is working correctly you should see a scatter plot in the bottom right corner of RStudio (see the image on page 5 of the workshop shared Google Doc to confirm). Once you have completed the installation and testing of your software go to the shared Google Doc and add your information to the Participants table on page 6.
 
-    ![](fig/select-gh-pages-branch.png?raw=true)
+The time allowed for the workshop is tight, so it is important that your software is working before the start of the workshop. If you need support for installation or making sure R, RStudio, and the tidyverse are working before the workshop there will be an optional drop in Zoom session 1-2 pm on Monday 15 February (Zoom link removed).
 
-3.  Edit the header of `index.md` to customize the list of instructors,
-    workshop venue, etc.
-    You can do this in the browser by clicking on it in the file view on GitHub
-    and then selecting the pencil icon in the menu bar:
 
-    ![](fig/edit-index-file-menu-bar.png?raw=true)
+3. Complete the pre-workshop survey here (survey link removed). We use this information to calibrate the pace of the workshop and, together with a post-workshop survey, to assess how it went. 
 
-    Editing hints are embedded in `index.md`,
-    and full instructions are in [the customization instructions][customization].
+Please read The Carpentries Code of Conduct so we all are aware of how to treat each other respectfully. 
 
-4.  Remove the notice about using the workshop template in the `index.md` file. You can safely
-    delete everything between the `{% comment %}` and `{% endcomment %}` (included) as indicated
-    below (about from line 35 to line 51):
+If you have any questions or issues - please don't hesitate to contact us. And if you won't be able to attend, please let us know so we can offer your seat to someone on the waitlist.
 
-    ```jekyll
-    {% comment %} <------------ remove from this line
-    8< ============= For a workshop delete from here =============
-    For a workshop please delete the following block until the next dashed-line
-    {% endcomment %}
-
-    <div class="alert alert-danger">
-      ....
-    </div>
-
-    {% comment %}
-     8< ============================= until here ==================
-    {% endcomment %} <--------- until this line
-    ```
-
-4.  Edit `_config.yml` to customize certain site-wide variables, such as: `carpentry` (to tell your
-    participants the lesson program for your workshop), `curriculum` and `flavor` for the
-    curriculum  taught in your workshop, and `title` (overall title for all pages).
-
-    Editing hints are embedded in `_config.yml`,
-    and full instructions are in [the customization instructions][customization].
-
-5. Edit the `schedule.html` file to edit the schedule for your upcoming workshop. This file is
-   located in the `_includes` directory, make sure to choose the one from the appropriate `dc` (Data
-   Carpentry workshop), `lc` (Library Carpentry), or `swc` (Software Carpentry) subdirectory.
-
-### Working locally
-
-> Note: you don't have to do this, if you have already updated your site using the web interface.
-
-
-If you are already familiar with Git, you can clone the repository to your desktop, edit `index.md`,
-`_config.yml`, and `schedule.html` following the instruction above there, and push your changes back to the repository.
-
-```shell
-git clone https://github.com/your_username/YYYY-MM-DD-site
-```
-
-In order to view your changes once you are done editing, if you have bundler installed (see the
-[installation instructions below](#installing-software)), you can preview your site locally with:
-
-```shell
-make serve
-```
-and go to <http://0.0.0.0:4000> to preview your site.
-
-Before pushing your changes to your repository, we recommend that you also check for any potential
-issues with your site by running:
-
-```shell
-make workshop-check
-```
-
-Once you are satisfied with the edits to your site, commit and push the changes to your repository.
-A few minutes later, you can go to the GitHub Pages URL for your workshop site and preview it. In the example above, this is `https://gvwilson.github.io/2016-12-01-miskatonic`. The finished
-page should look [something like this](fig/completed-page.png?raw=true).
-
-
-## Optional but Recommended Steps
-
-
-### Update your repository description and link your website
-
-At the top of your repository on GitHub you'll see
-
-~~~
-No description, website, or topics provided. — Edit
-~~~
-
-Click 'Edit' and add:
-
-1.  A very brief description of your workshop in the "Description" box (e.g., "Miskatonic University workshop, Dec. 2016")
-
-2.  The URL for your workshop in the "Website" box (e.g., `https://gvwilson.github.io/2016-12-01-miskatonic`)
-
-This will help people find your website if they come to your repository's home page.
-
-### Update the content of the README file
-
-You can change the `README.md` file in your website's repository, which contains these instructions,
-so that it contains a short description of your workshop and a link to the workshop website.
-
-
-## Additional Notes
-
-**Note:**
-please do all of your work in your repository's `gh-pages` branch,
-since [GitHub automatically publishes that as a website][github-project-pages].
-
-**Note:**
-this template includes some files and directories that most workshops do not need,
-but which provide a standard place to put extra content if desired.
-See the [design notes][design] for more information about these.
-
-Further instructions are available in [the customization instructions][customization].
-This [FAQ][faq] includes a few extra tips (additions are always welcome)
-and these notes on [the background and design][design] of this template may help as well.
-
-
-## Creating Extra Pages
-
-In rare cases,
-you may want to add extra pages to your workshop website.
-You can do this by putting either Markdown or HTML pages in the website's root directory
-and styling them according to the instructions give in
-[the lesson template][lesson-example].
-
-
-## Installing Software
-
-If you want to set up Jekyll so that you can preview changes on your own machine before pushing them
-to GitHub, you must install the software described in the lesson example [setup
-instructions](https://carpentries.github.io/lesson-example/setup.html#jekyll-setup-for-lesson-development).
-
-## Setting Up a Separate Repository for Learners
-
-If you are teaching Git,
-you should create a separate repository for learners to use in that lesson.
-You should not have them use the workshop website repository because:
-
-* your workshop website repository contains many files that most learners don't need to see during
-  the lesson, and
-
-* you probably don't want to accidentally merge a damaging pull request from a novice Git user into
-  your workshop's website while you are using it to teach.
-
-You can call this repository whatever you like, and add whatever content you need to it.
-
-## Getting and Giving Help
-
-We are committed to offering a pleasant setup experience for our learners and organizers.
-If you find bugs in our instructions,
-or would like to suggest improvements,
-please [file an issue][issues]
-or [mail us][email].
-
-[email]: mailto:team@carpentries.org
-[customization]: https://carpentries.github.io/workshop-template/customization/index.html
-[dc-site]: https://datacarpentry.org
-[design]: https://carpentries.github.io/workshop-template/design/index.html
-[faq]: https://carpentries.github.io/workshop-template/faq/index.html
-[github-project-pages]: https://help.github.com/en/github/working-with-github-pages/creating-a-github-pages-site
-[issues]: https://github.com/carpentries/workshop-template/issues
-[lesson-example]: https://carpentries.github.io/lesson-example/
-[self-organized-workshop-form]: https://amy.carpentries.org/forms/self-organised/
-[swc-site]: https://software-carpentry.org
-[lc-site]: https://librarycarpentry.org
