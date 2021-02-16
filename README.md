@@ -8,6 +8,9 @@ Workshop held online using Zoom
 
 Workshop website: https://mq-software-carpentry.github.io/2021-02-16-R-plotting-online/
 
+Resources for this workshop are located in the Resources folder.
+
+
 
 
 Set up instructions for participants of the workshop:
