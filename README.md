@@ -57,10 +57,10 @@ You may see a message about conflicts, this is a normal message when loading the
 
 To test that the tidyverse is installed and working properly, please run this small piece of code in the console:
 
-`relig_income %>%  
-  pivot_longer(!religion, names_to = "income", values_to = "count") %>%  
-  ggplot(mapping = aes(x = income, y = count)) +  
-  geom_point()`  
+`relig_income %>%`<br />
+`  pivot_longer(!religion, names_to = "income", values_to = "count") %>%`<br />
+`  ggplot(mapping = aes(x = income, y = count)) +`<br />
+`  geom_point()`<br />
 
 If everything is working correctly you should see a scatter plot in the bottom right corner of RStudio (see the image on page 5 of the workshop shared Google Doc to confirm). Once you have completed the installation and testing of your software go to the shared Google Doc and add your information to the Participants table on page 6.
 
